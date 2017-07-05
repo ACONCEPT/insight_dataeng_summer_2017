@@ -196,9 +196,9 @@ def print_stats():
     pass
 
 def prompt_dt(D,T,classified):
-    anomalies = classified.query('anomaly == True')
+#    anomalies = classified.query('anomaly == True')
     print('No anomalies detected for D value of {} and T value of {}'.format(D,T))
-    print('suggested T value is {}'.format(classified['anomaly_t'].mean(axis=0)))
+    print('suggested T value is {}'.format(classified['netp_length'].mean(axis=0)))
     d = int(input('please enter new integer value for D : '))
     t = int(input('please enter new integer value for T : '))
     return d, t 
