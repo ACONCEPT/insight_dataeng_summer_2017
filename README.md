@@ -89,15 +89,15 @@ else, return False
 
 Dependencies for this script are :
     
-Python 3.6
-Pandas
-Numpy
-networkx
+* Python 3.6
+* Pandas
+* Numpy
+* networkx
 
 these can be installed from anaconda package and environment manager 
-conda install pandas
-conda install numpy
-conda install networkx
+* conda install pandas
+* conda install numpy
+* conda install networkx
 
 or the same with pip in a virtualenv
 
@@ -136,26 +136,26 @@ this is an extra output file in the log_output folder. it contains all purchase
 events in the stream logs, and includes a few extra values:
 extra columns:
 
-    anomaly = whether or not the row could be an anomaly. this is not the same as
+*    anomaly = whether or not the row could be an anomaly. this is not the same as
     being flagged, because a flexible T value is used to calculate this
     
-    netplen = if netplen is less then T, then this value was used as a T value to 
+*    netplen = if netplen is less then T, then this value was used as a T value to 
      create the anomaly flag
  
-    TooShort = if this field is marked True, then netplen is less than T, and the 
+*    TooShort = if this field is marked True, then netplen is less than T, and the 
     anomaly being true does not make the purchase flagged.
     
-    mean = network mean used for anomaly calculation
+*    mean = network mean used for anomaly calculation
 
-    sd = network standard deviation used for anomaly calculation
+*    sd = network standard deviation used for anomaly calculation
 
-    threshhold = mean + (standard deviation * 3)
+*    threshhold = mean + (standard deviation * 3)
 
-    T = T value grabbed from batch logs or user input
+*    T = T value grabbed from batch logs or user input
 
-    D = D value grabbed form batch logs or user input
+*    D = D value grabbed form batch logs or user input
 
-    flagged = True if anomaly == True and TooShort == False 
+*    flagged = True if anomaly == True and TooShort == False 
 
 
 
