@@ -1,5 +1,5 @@
 # Table of Contents
-1. [Solution Summary](README.md#challenge-summary)
+1. [Solution Summary](README.md#solution-summary)
 2. [Batchlog processing and network starting state](README.md#Batchlog processing and network starting state)
 3. [Streamlog processing and anomaly detection](README.md#Streamlog processing and anomaly detection)
 4. [Dependencies](README.md#Dependencies)
@@ -8,9 +8,8 @@
 7. [Additional features] (README.md#additional features)
 8. [Assignment Original README] (README.md#Assignment original README)
 
-===============================================================================
-1. Solution Summary
-===============================================================================
+1. #Solution Summary
+
 In the challenge initial README, the business case and background of the 
 problem are discussed. In this document, only the solution itself and the way it
 works will be discussed.
@@ -37,9 +36,9 @@ through the execution of the data processing.
  T = the number of historic purchases to consider in the anomaly detection 
      algorithm (excluding the usuers own purchases)
 
-===============================================================================
-2. Batchlog processing and network starting state 
-===============================================================================
+
+2. #Batchlog processing and network starting state 
+
 
 
 the building of the social network graph, and all graph functions used within 
@@ -68,9 +67,8 @@ adding and removing edges from the graph as indicated
 
 the D and T values, batchlog,  and network graph objects are returned
 
-===============================================================================
-3. Streamlog processing and anomaly detection
-===============================================================================
+3. #Streamlog processing and anomaly detection
+
 
 The streamlog processing starts off a lot like the batch log processing. 
 the records are sorted the same way, and befriend and defriend events are handled in order.
@@ -88,9 +86,8 @@ determine statistical anomaly threshhold = mean + (3 * standard deviation)
 if currrent order amount >= stastical anomaly threshhold then return a True 
 else, return False
 
-===============================================================================
-4. Dependencies
-===============================================================================
+4. #Dependencies
+
 
 Dependencies for this script are :
     
@@ -106,9 +103,9 @@ conda install networkx
 
 or the same with pip in a virtualenv
 
-===============================================================================
-5. Testing and test data notes
-===============================================================================
+
+5. #Testing and test data notes
+
 
 using the insight_testsuite included with the original repository, this script
 passes those tests. However, with the data that came with the original repository,
@@ -118,27 +115,29 @@ an anomaly. the test stream log was just one record, intended to be indicated
 as anomalous. A T value of 3 would be the maximum to allow that record to be 
 classified, so I manually modified the test input. 
 
-===============================================================================
-6. running the script
-===============================================================================
+
+6. #running the script
+
 
 the run.sh shell script included does nothing other than 
 python ./src/process_log.py
 
 all of the filepath stuff is handled with python magic variables and relative references.
 
-===============================================================================
-# additional features
-===============================================================================
+
+7. #additional features
+
 
 1. Adjustment of T value:
+
 upon running if there is no anomalies detected for the value of T provided in
  the batchlogs,the script will prompt for user input asking for different T 
  values, it will also reccomend a T value based on the average network size at 
  time of purchase in the ego graph for the purchaser based on the D value 
  already provided alternate D values will not be suggested.
 
-2.purchases_features.json
+2. purchases_features.json:
+
 this is an extra output file in the log_output folder. it contains all purchase 
 events in the stream logs, and includes a few extra values:
 extra columns:
