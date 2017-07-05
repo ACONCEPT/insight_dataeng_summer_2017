@@ -4,11 +4,10 @@
 3. [Streamlog processing and anomaly detection](README.md#Streamlog-processing-and-anomaly-detection)
 4. [Dependencies](README.md#Dependencies)
 5. [Testing and test data notes](README.md#Testing-and-test-data-notes)
-6. [Running the script] (README.md#running-the-script)
-7. [Additional features] (README.md#additional-features)
-8. [Assignment Original README] (README.md#Assignment-original-README)
+6. [Running the script] (README.md#Running-the-script)
+7. [Additional features] (README.md#Additional-features)
 
-#Solution Summary
+# Solution Summary
 
 In the challenge initial README, the business case and background of the 
 problem are discussed. In this document, only the solution itself and the way it
@@ -37,7 +36,7 @@ through the execution of the data processing.
      algorithm (excluding the usuers own purchases)
 
 
-#Batchlog processing and network starting state 
+# Batchlog processing and network starting state 
 
 
 
@@ -67,7 +66,7 @@ adding and removing edges from the graph as indicated
 
 the D and T values, batchlog,  and network graph objects are returned
 
-#Streamlog processing and anomaly detection
+# Streamlog processing and anomaly detection
 
 
 The streamlog processing starts off a lot like the batch log processing. 
@@ -86,8 +85,7 @@ determine statistical anomaly threshhold = mean + (3 * standard deviation)
 if currrent order amount >= stastical anomaly threshhold then return a True 
 else, return False
 
-#Dependencies
-
+# Dependencies
 
 Dependencies for this script are :
     
@@ -103,9 +101,7 @@ conda install networkx
 
 or the same with pip in a virtualenv
 
-
-#Testing and test data notes
-
+# Testing and test data notes
 
 using the insight_testsuite included with the original repository, this script
 passes those tests. However, with the data that came with the original repository,
@@ -115,9 +111,7 @@ an anomaly. the test stream log was just one record, intended to be indicated
 as anomalous. A T value of 3 would be the maximum to allow that record to be 
 classified, so I manually modified the test input. 
 
-
-#running the script
-
+# Running the script
 
 the run.sh shell script included does nothing other than 
 python ./src/process_log.py
@@ -125,7 +119,7 @@ python ./src/process_log.py
 all of the filepath stuff is handled with python magic variables and relative references.
 
 
-#additional features
+# Additional features
 
 
 1. Adjustment of T value:
