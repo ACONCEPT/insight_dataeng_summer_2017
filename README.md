@@ -4,8 +4,8 @@
 3. [Streamlog processing and anomaly detection](README.md#Streamlog-processing-and-anomaly-detection)
 4. [Dependencies](README.md#Dependencies)
 5. [Testing and test data notes](README.md#Testing-and-test-data-notes)
-6. [Running the script] (README.md#Running-the-script)
-7. [Additional features] (README.md#Additional-features)
+6. [Running the script](README.md#Running-the-script)
+7. [Additional features](README.md#Additional-features)
 
 # Solution Summary
 
@@ -74,15 +74,16 @@ the records are sorted the same way, and befriend and defriend events are handle
 the difference lies in the handling of the purchase events. 
 
 in processing purchase order events, the follwing steps are executed:
-    obtain ego graph for user graph within parameters d ego_graph = EG(user_id,G,d)
 
-determine purchase history of length t for ego_graph. In other words, query the 
+* obtain ego graph for user graph within parameters d ego_graph = EG(user_id,G,d)
+
+* determine purchase history of length t for ego_graph. In other words, query the 
 total purchase history for only the purchases which are made by users in the 
 ego_graph network (excluding the user theirself)
         
-determine statistical anomaly threshhold = mean + (3 * standard deviation)
+* determine statistical anomaly threshhold = mean + (3 * standard deviation)
 
-if currrent order amount >= stastical anomaly threshhold then return a True 
+* if currrent order amount >= stastical anomaly threshhold then return a True 
 else, return False
 
 # Dependencies
@@ -104,23 +105,24 @@ or the same with pip in a virtualenv
 # Testing and test data notes
 
 using the insight_testsuite included with the original repository, this script
-passes those tests. However, with the data that came with the original repository,
-a T value of 50 was indicated with the test batch logs. Since there are only 3 
-purchases in the batch log, this value of 50 for T will obviously never produce 
-an anomaly. the test stream log was just one record, intended to be indicated 
-as anomalous. A T value of 3 would be the maximum to allow that record to be 
-classified, so I manually modified the test input. 
+passes those tests.
+However, with the data that came with the original repository, a T value of 50 
+was indicated with the test batch logs. Since there are only 3 purchases in the
+batch log, this value of 50 for T will obviously never produce an anomaly.
+the test stream log was just one record, intended to be indicated as anomalous.
+A T value of 3 would be the maximum to allow that record to be classified, so I
+manually updated the test input batch_log.json file to include a T value of 3. 
 
 # Running the script
 
-the run.sh shell script included does nothing other than 
+run.sh script will run it all or 
+
 python ./src/process_log.py
 
 all of the filepath stuff is handled with python magic variables and relative references.
 
 
 # Additional features
-
 
 1. Adjustment of T value:
 
